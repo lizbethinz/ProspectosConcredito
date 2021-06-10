@@ -1,0 +1,142 @@
+<app-menu></app-menu>
+<div class="container container-fluid">
+    <div class="row" style="text-align: center; margin-top: 15px;">
+        <div style="color:darkcyan">
+            <h2>LISTADO DE PROSPECTOS</h2>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+      <div *ngIf="!viendoProspecto">
+        <table class="table table-striped table-bordered" > 
+          <thead> 
+           <tr> 
+            <th>Nombre</th> 
+            <th>Apellido Paterno</th> 
+            <th>Apellido Materno</th> 
+            <th>Estatus</th>
+            <th></th>
+           </tr> 
+          </thead> 
+          <tbody> 
+           <tr *ngFor="let pro of data; let i = index"> 
+            <td> 
+              {{pro.nombre}}
+            </td> 
+            <td> 
+              {{pro.apellidoPaterno}}
+            </td> 
+            <td> 
+              {{pro.apellidoMaterno}}
+            </td> 
+            <td>
+              {{pro.estado}}  
+            </td>
+            <td> 
+              <button class="btn btn-success" type="button" (click)="verProspecto(pro.RFC)"  >Ver</button> 
+             </td> 
+           </tr> 
+          </table>
+
+      </div>
+        
+    
+           
+            <div *ngIf="viendoProspecto">
+
+              <button class="btn btn-secondary" (click)="viendoProspecto=false;">Volver</button>
+                <div class= "row" >
+                    <div class= "col col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left" style="margin-bottom: 20px;">
+                      <div class="form-group">
+                        <label for="nombreP" style="font-weight: bold;">Nombre:</label>
+                        <input [(ngModel)]="prospecto.nombre"  type="text" class="form-control" id="nombreP" name="nombreP" maxlength="50" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="apellidoP" style="font-weight: bold;">Apellido Paterno:</label>
+                        <input [(ngModel)]="prospecto.apellidoPaterno"  type="text" class="form-control" id="apellidoP" name="apellidoP" maxlength="50" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="apellidoM" style="font-weight: bold;">Apellido Materno:</label>
+                        <input [(ngModel)]="prospecto.apellidoMaterno"  type="text" class="form-control" id="apellidoM" name="apellidoM" maxlength="50" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="calle" style="font-weight: bold;">Calle:</label>
+                        <input [(ngModel)]="prospecto.calle"  type="text" class="form-control" id="calle" name="calle" maxlength="50" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="numeroCasa" style="font-weight: bold;">Número de casa:</label>
+                        <input [(ngModel)]="prospecto.numero"  type="text" class="form-control" id="numeroCasa" name="numeroCasa" maxlength="15" disabled>
+                      </div>
+                
+                      
+                
+                      <div class="form-group">
+                        <label for="colonia" style="font-weight: bold;">Colonia:</label>
+                        <input [(ngModel)]="prospecto.colonia"  type="text" class="form-control" id="colonia" name="colonia" maxlength="50" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="codigoPostal" style="font-weight: bold;">Código Postal:</label>
+                        <input [(ngModel)]="prospecto.codigoPostal"  type="number" class="form-control" id="codigoPostal" name="codigoPostal" maxlength="10" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="telefono" style="font-weight: bold;">Teléfono:</label>
+                        <input [(ngModel)]="prospecto.telefono"  type="number" class="form-control" id="telefono" name="telefono" maxlength="10" disabled>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="rfc" style="font-weight: bold;">RFC:</label>
+                        <input [(ngModel)]="prospecto.RFC"  type="text" class="form-control" id="rfc" name="rfc" maxlength="13" disabled>
+                      </div>
+                    </div>
+                
+                
+                
+                    <!-- inicia captura de documentos -->
+
+                    <div class= "col col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right formulariocaptura">
+                        <div *ngIf="prospecto.estadoInt === '3'">
+                          <div class="form-group">
+                            <label for="motivoRechazo" style="font-weight: bold;">Motivo Rechazo:</label>
+                            <input [(ngModel)]="prospecto.motivoRechazo"  type="text" class="form-control" id="motivoRechazo" name="motivoRechazo"  disabled>
+                          </div>
+                           
+
+                        </div>
+                     
+                     
+                      <br>
+                      <div *ngIf="documentos.length>0">
+                        <hr>
+                        <label for="" style="font-weight: bold;font-size: 20px;">Documentos cargados:</label>
+                        <br>
+                        <div class="form-group">
+                          <table table>
+                            <tr *ngFor="let doc of documentos; let i = index" >
+                              <td>{{doc.nombreDocumento}}</td>
+                              <td><button class="btn btn-success" (click)="verdocumento(doc.src)">Ver</button></td>
+                            </tr>
+                          </table>
+                          
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                
+                
+                    
+                  </div>
+            </div>
+           
+    </div>
+    
+    
+</div>

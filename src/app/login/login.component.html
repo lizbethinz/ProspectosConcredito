@@ -1,0 +1,31 @@
+<form  >
+    <br>
+    <br>
+    
+    <div style="width: 600px;text-align: center; margin-left: 25%; margin-right: 25%;">
+        <h3 style="font-weight: bold; font-family: bookantiqua; color:black">Prospectos</h3>
+        <img src="..\assets\concredito-logo.png" alt="" style="height: 50px;">
+       
+        
+        
+    <hr style="color: greenyellow;" />
+
+   
+        <div class="form-group">
+            <label for="email" style="font-weight: bold;">Usuario:</label>
+            <input [(ngModel)]="login.usuario"  type="email" class="form-control" id="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd" style="font-weight: bold;">Contraseña:</label>
+            <input [(ngModel)]="login.contrasena"  type="password" class="form-control" id="pwd" name="pwd">
+          </div>
+      
+
+          <br>
+        
+          <button type="submit" class="btn btn-success"  (click)="loginUsuario()">Iniciar Sesión</button>
+    </div>
+   
+  </form>
+ 
+

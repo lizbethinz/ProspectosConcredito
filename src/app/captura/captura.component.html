@@ -1,0 +1,120 @@
+<app-menu></app-menu>
+
+
+<div class="container container-fluid">
+  <div class="row" style="text-align: center; margin-top: 15px;">
+
+    <div class="col col-sm-12 col-lg-7 col xs-12 col-md-7" style="color:darkcyan">
+      <h2>CAPTURA DE PROSPECTO</h2>
+    </div>
+    
+      <div class="col col-sm-12 col-lg-5 col xs-12 col-md-5 text-right">
+        <button type="submit" class="btn btn-success" (click)="Guardar()">Enviar</button> &nbsp;
+        <button type="submit" class="btn btn-danger" (click)="Salir()"  >Salir</button> 
+        
+      </div>
+    
+    <hr>
+  </div>
+  <div class= "row">
+    <div class= "col col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <label for="nombreP" style="font-weight: bold;">Nombre:</label>
+        <input [(ngModel)]="prospecto.nombreProspecto"  type="text" class="form-control" id="nombreP" name="nombreP" maxlength="50">
+      </div>
+
+      <div class="form-group">
+        <label for="apellidoP" style="font-weight: bold;">Apellido Paterno:</label>
+        <input [(ngModel)]="prospecto.apellidoP"  type="text" class="form-control" id="apellidoP" name="apellidoP" maxlength="50">
+      </div>
+
+      <div class="form-group">
+        <label for="apellidoM" style="font-weight: bold;">Apellido Materno:</label>
+        <input [(ngModel)]="prospecto.apellidoM"  type="text" class="form-control" id="apellidoM" name="apellidoM" maxlength="50">
+      </div>
+
+      <div class="form-group">
+        <label for="calle" style="font-weight: bold;">Calle:</label>
+        <input [(ngModel)]="prospecto.calle"  type="text" class="form-control" id="calle" name="calle" maxlength="50">
+      </div>
+
+      <div class="form-group">
+        <label for="numeroCasa" style="font-weight: bold;">Número de casa:</label>
+        <input [(ngModel)]="prospecto.numeroCasa"  type="text" class="form-control" id="numeroCasa" name="numeroCasa" maxlength="15">
+      </div>
+
+      
+
+      <div class="form-group">
+        <label for="colonia" style="font-weight: bold;">Colonia:</label>
+        <input [(ngModel)]="prospecto.colonia"  type="text" class="form-control" id="colonia" name="colonia" maxlength="50">
+      </div>
+
+      <div class="form-group">
+        <label for="codigoPostal" style="font-weight: bold;">Código Postal:</label>
+        <input [(ngModel)]="prospecto.codigoPostal"  type="number" class="form-control" id="codigoPostal" name="codigoPostal" maxlength="10">
+      </div>
+
+      <div class="form-group">
+        <label for="telefono" style="font-weight: bold;">Teléfono:</label>
+        <input [(ngModel)]="prospecto.telefono"  type="number" class="form-control" id="telefono" name="telefono" maxlength="10">
+      </div>
+
+      <div class="form-group">
+        <label for="rfc" style="font-weight: bold;">RFC:</label>
+        <input [(ngModel)]="prospecto.rfc"  type="text" class="form-control" id="rfc" name="rfc" maxlength="13">
+      </div>
+    </div>
+
+
+
+    <!-- inicia captura de documentos -->
+    <div class= "col col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right formulariocaptura">
+      <label for="nuevodoc" style="font-weight: bold;font-size: 20px;">Agregar Documento</label>
+      <button id="nuevodoc" name="nuevodoc" class="btn btn-info botondocto" (click)="agregardocumento=true;">+</button>
+      <!-- <label for="">Nuevo Documento:<i class="fas fa-plus"></i></label> -->
+
+      <div *ngIf="agregardocumento">
+        <div class="form-group">
+          <label for="nombre" style="font-weight: bold;">Nombre Documento:</label>
+          <input #nombreDoc [(ngModel)]="nombreDocumento"  type="text" class="form-control" id="nombreDoc" name="nombreDoc">
+        </div>
+        <br>
+        <div class="form-group">
+          
+          <input #myInput type="file" id="imagen" name="imagen" (change)="cargandoImagen($event.target.files)" multiple ><!-- multiple -->
+        </div>
+      </div>
+     
+      <br>
+      <div *ngIf="documentos.length>0">
+        <hr>
+        <label for="" style="font-weight: bold;font-size: 20px;">Documentos cargados:</label>
+        <br>
+        <div class="form-group">
+          <table table>
+            <tr *ngFor="let doc of documentos; let i = index" >
+              <td>{{doc.nombreDocumento}}</td>
+              <td><button class="btn btn-success" (click)="verdocumento(doc.src)">Ver</button></td>
+            </tr>
+          </table>
+          
+        </div>
+      </div>
+      
+      
+    </div>
+
+
+    
+  </div>
+ 
+
+
+   
+
+</div>
+
+  
+  
+  

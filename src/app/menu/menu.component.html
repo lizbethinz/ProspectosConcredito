@@ -1,0 +1,34 @@
+<!-- 
+ <nav class="navbar navbar-default">
+    <div class="container-fluid navegacion">
+      <div class="navbar-header">
+      </div>
+      <ul class="nav navbar-nav navegacion" >
+        <li class="active"><a href="menu"><img src="..\assets\concredito-logo.png" alt="" style="height: 50px;"></a></li>
+        <li><a href="captura" *ngIf="rol === '1'">Captura</a></li>
+        <li><a href="listado">Listado</a></li>
+        <li><a href="evaluacion" *ngIf="rol === '2'">Evaluación</a></li>
+        <li><a href="">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </nav> 
+   -->
+  
+
+   <!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="..\assets\concredito-logo.png" alt="" style="height: 50px;"></a>
+    <!-- <a href="" *ngIf="rol === '1'">Captura</a>
+    <a href="">Listado</a>
+    <a href="" *ngIf="rol === '2'">Evaluación</a> -->
+    <button type="submit" class="btn btn-light"  (click)="captura()" *ngIf="rol === '1'">Captura</button>
+    <button type="submit" class="btn btn-light"  (click)="listado()">Listado</button>
+    <button type="submit" class="btn btn-light"  (click)="evaluacion()"*ngIf="rol === '2'">Evaluación</button>
+    <button type="submit" class="btn btn-light"  (click)="inciarSesion()">Cerrar Sesión</button>
+    <!-- <a href="">Cerrar Sesión</a> -->
+  </div>
+</nav>
+
+
+

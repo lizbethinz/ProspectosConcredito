@@ -1,0 +1,16 @@
+@import '~font-awesome/css/font-awesome.css';
+
+.botondocto{
+    margin-left: 5px;
+    font-weight: bolder;
+    font-size: 25px;
+    padding-left: 5;
+    padding-right: 5;
+    padding-bottom: 1;
+    padding-top: 0;
+    color:white;
+}
+
+.form-group{
+    margin-top:15px;
+}
